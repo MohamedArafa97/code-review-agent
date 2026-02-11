@@ -12,7 +12,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge)](LICENSE)
 [![Telegram](https://img.shields.io/badge/More_Agents_%26_Vibe_Coding-Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/codeonvibes)
 
-[Installation](#-installation) · [Features](#-what-it-reviews) · [How It Works](#-how-it-works) · [Examples](#-example-output) · [Built On](#-built-on)
+[Features](#-what-it-reviews) · [How It Works](#-how-it-works) · [Examples](#-example-output) · [Built On](#-built-on)
+
+```bash
+mkdir -p .claude/agents && curl -o .claude/agents/code-reviewer.md \
+  https://raw.githubusercontent.com/SomeStay07/code-review-agent/main/code-reviewer.md
+```
 
 ---
 
