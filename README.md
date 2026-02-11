@@ -2,9 +2,9 @@
 
 # 🔍 Code Reviewer Agent
 
-**Expert-level automated code review for TypeScript & React projects**
+**Automated code review for TypeScript & React projects**
 
-*A Claude Code subagent that reviews your code like a senior engineer — with concrete fixes, not vague suggestions*
+*A Claude Code subagent that reviews your code like a senior engineer, giving concrete fixes instead of vague suggestions*
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Agent-7C3AED?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IndoaXRlIi8+PC9zdmc+)](https://docs.anthropic.com/en/docs/agents)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white)]()
@@ -28,14 +28,57 @@ No specifics. No fix. No file path. You're left guessing what exactly to change.
 
 ## 💡 The Solution
 
-**Code Reviewer Agent** is a `.md` file that turns Claude Code into a senior code reviewer. It doesn't just find problems — it gives you the exact fix: file, line, before → after.
+**Code Reviewer Agent** is a `.md` file that configures Claude Code for expert-level code review. It gives you the exact fix: file, line, before → after.
 
 ```
 src/api/userController.ts:42:critical: [Security] Raw user input in SQL query.
 Fix: db.query('SELECT * FROM users WHERE id = $1', [userId])
 ```
 
-Every finding has a severity, a category, a confidence level, and a concrete code change. No hand-waving.
+Every finding has a severity, confidence level, and a concrete code change.
+
+<div align="center">
+<br>
+<img src="demo.svg" alt="Code Reviewer Agent demo — review output in terminal" width="800">
+<br>
+<sub>What a review looks like — real findings, real fixes, no fluff</sub>
+<br><br>
+</div>
+
+## ⚡ Why This Agent
+
+<table>
+<tr>
+<td>
+
+```
+✅ 14 review categories
+✅ 14 false-positive rules
+✅ 4 severity levels + confidence
+✅ Auto-fix with A/B/C/D options
+✅ 0 dependencies, 0 config
+✅ 1 file, copy and use
+✅ Bilingual output (EN + RU)
+✅ 8 refactoring heuristics
+```
+
+</td>
+<td>
+
+| Feature | This Agent | Manual Review | Generic AI |
+|:--------|:----------:|:------------:|:----------:|
+| Concrete fixes (file:line) | ✅ | ✅ | ❌ |
+| Security (OWASP Top 10) | ✅ | ⚠️ sometimes | ❌ |
+| False-positive filtering | ✅ | ✅ | ❌ |
+| Auto-apply fixes | ✅ | ❌ | ❌ |
+| Consistent across PRs | ✅ | ❌ | ⚠️ varies |
+| Available at 3 AM | ✅ | ❌ | ✅ |
+| Cost | Free | $150+/hr | Free |
+| Setup time | 30 seconds | — | — |
+
+</td>
+</tr>
+</table>
 
 ## ✨ What It Reviews
 
@@ -82,7 +125,7 @@ Every finding has a severity, a category, a confidence level, and a concrete cod
 </tr>
 </table>
 
-**14 review categories total** — but the agent only checks what's relevant. Backend PR? It skips React and a11y. Test-only PR? It focuses on assertions and isolation.
+**14 review categories total.** The agent only checks what's relevant. Backend PR? It skips React and a11y. Test-only PR? It focuses on assertions and isolation.
 
 ## 📊 How It Works
 
@@ -142,13 +185,13 @@ curl -o .claude/agents/code-reviewer.md \
 ### 2. Use it
 
 ```bash
-# In Claude Code, just say:
+# In Claude Code, say:
 "Review my recent changes"
 "Check this code before I push"
 "глянь код, нет ли косяков?"
 ```
 
-That's it. No configuration. No API keys. No build step.
+No configuration, API keys, or build step required.
 
 > **Requirements:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code) with subagent support. The agent runs on `sonnet` model by default.
 
@@ -198,11 +241,11 @@ That's it. No configuration. No API keys. No build step.
 
 ### "Review the diff, not the file"
 
-The agent reviews only what changed — not the entire codebase. Pre-existing issues in unchanged code are out of scope. This matches [Google's Engineering Practices](https://google.github.io/eng-practices/review/): approve when the change improves overall code health, even if it isn't perfect.
+The agent reviews only what changed, not the entire codebase. Pre-existing issues in unchanged code are out of scope. This follows [Google's Engineering Practices](https://google.github.io/eng-practices/review/): approve when the change improves overall code health, even if imperfect.
 
 ### "Investigate before judging"
 
-Every finding is verified by reading the actual code. The agent uses `Grep` to find callers, `Read` to check implementations, and traces the data flow before writing a fix. A review based on assumptions is worse than no review.
+Every finding is verified by reading the actual code. The agent uses `Grep` to find callers, `Read` to check implementations, and traces the data flow before writing a fix. A review based on assumptions breaks trust.
 
 ### Smart skipping
 
@@ -210,7 +253,7 @@ Every finding is verified by reading the actual code. The agent uses `Grep` to f
 
 ### Bilingual (EN + RU)
 
-The agent detects the user's language and outputs the entire review in that language — headings, severity labels, fixes, everything. Code stays in the programming language.
+The agent detects the user's language and outputs the entire review in that language: headings, severity labels, and fixes. Code stays in the programming language.
 
 ## 🔧 Under the Hood
 
@@ -263,7 +306,7 @@ Not every code smell warrants a suggestion. The agent uses **8 heuristics** to d
 
 ## 📚 Built On
 
-The agent synthesizes practices from established industry sources:
+Built on practices from established industry sources:
 
 | Source | What it contributes |
 |:-------|:-------------------|
@@ -279,12 +322,18 @@ The agent synthesizes practices from established industry sources:
 
 ```
 code-review-agent/
-├── code-reviewer.md    ← the agent (copy to .claude/agents/)
+├── code-reviewer.md    # the agent (copy to .claude/agents/)
 ├── README.md
 └── LICENSE
 ```
 
-One file. No build step. No dependencies. Just copy and use.
+One file. No build step. No dependencies. Copy and use.
+
+## 🏗️ Built For Production
+
+This agent was built and refined while developing a real TypeScript + React + NestJS monorepo with 100+ files, a league system, gamification, and interview features. Every rule, false-positive filter, and refactoring heuristic comes from real-world review cycles.
+
+> *700+ lines of review logic, refined through production use. Each rule comes from catching a real bug or preventing a false alarm.*
 
 ## 🤝 Contributing
 
@@ -325,7 +374,7 @@ model: sonnet
 
 <div align="center">
 
-**Built with ❤️ for developers who want real code reviews, not rubber stamps.**
+**Built for developers who want concrete code reviews.**
 
 *If this helped you, give it a ⭐ — it helps others find it too.*
 
