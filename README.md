@@ -10,6 +10,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white)]()
 [![React](https://img.shields.io/badge/React-18%2F19-61DAFB?style=for-the-badge&logo=react&logoColor=black)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge)](LICENSE)
+[![Telegram](https://img.shields.io/badge/More_Agents_%26_Vibe_Coding-Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/codeonvibes)
 
 [Installation](#-installation) · [Features](#-what-it-reviews) · [How It Works](#-how-it-works) · [Examples](#-example-output) · [Built On](#-built-on)
 
