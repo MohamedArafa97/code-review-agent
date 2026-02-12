@@ -7,10 +7,10 @@
 *A Claude Code agent that reviews your code like a senior engineer — concrete fixes instead of vague suggestions*
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Agent-7C3AED?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IndoaXRlIi8+PC9zdmc+)](https://code.claude.com/docs)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white)]()
-[![React](https://img.shields.io/badge/React-18%2F19-61DAFB?style=for-the-badge&logo=react&logoColor=black)]()
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-18%2F19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge)](LICENSE)
-[![Telegram](https://img.shields.io/badge/More_Agents_%26_Vibe_Coding-Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/codeonvibes)
+[![Telegram](https://img.shields.io/badge/Telegram-Channel-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/codeonvibes)
 
 [What It Reviews](#what-it-reviews) · [How It Works](#how-it-works) · [Installation](#installation) · [Example Output](#example-output) · [Built On](#built-on)
 
@@ -54,23 +54,13 @@ Every finding has a severity, confidence level, and a concrete code change.
 
 ## At a Glance
 
-<table>
-<tr>
-<td>
-
-```
- 14 review categories
- 14 false-positive rules
- 4 severity levels + confidence
- Auto-fix with A/B/C/D options
- 0 dependencies, 0 config
- 1 file, copy and use
- Responds in your language
- 8 refactoring heuristics
-```
-
-</td>
-<td>
+- 14 review categories with smart scoping per PR type
+- 14 false-positive rules to reduce noise
+- 4 severity levels with confidence scoring
+- Auto-fix with A/B/C/D options after each review
+- 8 refactoring heuristics (Rule of Three, blast radius, etc.)
+- Responds in your language — detects and adapts automatically
+- 0 dependencies, 0 config — one file, copy and use
 
 | Feature | This Agent | Manual Review | Generic AI |
 |:--------|:----------:|:------------:|:----------:|
@@ -79,13 +69,7 @@ Every finding has a severity, confidence level, and a concrete code change.
 | False-positive filtering | ✅ | ✅ | ❌ |
 | Auto-apply fixes | ✅ | ❌ | ❌ |
 | Consistent across PRs | ✅ | ❌ | ⚠️ varies |
-| Available at 3 AM | ✅ | ❌ | ✅ |
-| Cost | Free | $150+/hr | Free |
 | Setup time | 30 seconds | — | — |
-
-</td>
-</tr>
-</table>
 
 ## What It Reviews
 
@@ -178,18 +162,19 @@ Each finding includes **confidence level**: `[HIGH]` (verified), `[MEDIUM]` (lik
 
 ## Installation
 
-### 1. Copy the agent file
+### Option A: One command (recommended)
 
 ```bash
-# Create agents directory if it doesn't exist
-mkdir -p .claude/agents
-
-# Download the agent
-curl -o .claude/agents/code-reviewer.md \
+mkdir -p .claude/agents && curl -o .claude/agents/code-reviewer.md \
   https://raw.githubusercontent.com/SomeStay07/code-review-agent/main/code-reviewer.md
 ```
 
-### 2. Use it
+### Option B: Manual
+
+1. Download [`code-reviewer.md`](https://raw.githubusercontent.com/SomeStay07/code-review-agent/main/code-reviewer.md)
+2. Place it in your project's `.claude/agents/` directory
+
+### Use it
 
 ```bash
 # In Claude Code, say:
@@ -262,29 +247,7 @@ Every finding is verified by reading the actual code. The agent uses `Grep` to f
 
 The agent detects the user's language and outputs the entire review in that language: headings, severity labels, and fixes. Code stays in the programming language.
 
-## Under the Hood
-
-```mermaid
-graph LR
-    subgraph "Tools the agent uses"
-        A[Read] -->|Examine code context| E[Review]
-        B[Grep] -->|Find callers & patterns| E
-        C[Glob] -->|Find related files| E
-        D[Bash] -->|git diff, tsc, lint| E
-    end
-
-    subgraph "Delegates to specialists"
-        E -->|Needs debugging| F[debugger agent]
-        E -->|Needs test run| G[test-runner agent]
-        E -->|Needs coverage analysis| H[test-analyst agent]
-    end
-
-    subgraph "Post-review"
-        E -->|Auto-fix| I[Edit tool]
-        E -->|Report| J[Structured output]
-        I --> K[Re-run lint + typecheck]
-    end
-```
+## Internals
 
 ### Memory System
 
@@ -312,8 +275,6 @@ Not every code smell warrants a suggestion. The agent uses **8 heuristics** to d
 8. **Scope boundary** — refactoring belongs in a dedicated PR
 
 ## Built On
-
-Built on practices from established industry sources:
 
 | Source | What it contributes |
 |:-------|:-------------------|
@@ -343,10 +304,10 @@ One file. No build step. No dependencies. Copy and use.
 
 | Issue | Cause | Fix |
 |-------|-------|-----|
-| Agent not found | Missing file or wrong path | Verify `.claude/agents/code-reviewer.md` exists |
-| Review is too slow | Large diff or many categories | Agent auto-scopes, but you can say "focus on security only" |
-| False positive | Rule doesn't match your pattern | Agent learns from corrections via memory system |
-| No output | Claude Code doesn't have agent support | Update Claude Code to latest version |
+| Agent not triggered | File missing or wrong path | Verify `.claude/agents/code-reviewer.md` exists in your project |
+| Review is too slow | Large diff with many files | Agent auto-scopes, but you can say "focus on security only" |
+| False positive | Rule doesn't match your codebase | Say "this is intentional" — agent learns via memory |
+| No review output | Older Claude Code version | Run `claude --version` and update to latest |
 
 ## Contributing
 
