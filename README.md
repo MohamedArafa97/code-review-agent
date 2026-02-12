@@ -1,18 +1,18 @@
 <div align="center">
 
-# 🔍 Code Reviewer Agent
+# Code Reviewer Agent
 
 **Automated code review for TypeScript & React projects**
 
-*A Claude Code subagent that reviews your code like a senior engineer, giving concrete fixes instead of vague suggestions*
+*A Claude Code agent that reviews your code like a senior engineer — concrete fixes instead of vague suggestions*
 
-[![Claude Code](https://img.shields.io/badge/Claude_Code-Agent-7C3AED?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IndoaXRlIi8+PC9zdmc+)](https://docs.anthropic.com/en/docs/agents)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Agent-7C3AED?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IndoaXRlIi8+PC9zdmc+)](https://code.claude.com/docs)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white)]()
 [![React](https://img.shields.io/badge/React-18%2F19-61DAFB?style=for-the-badge&logo=react&logoColor=black)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge)](LICENSE)
 [![Telegram](https://img.shields.io/badge/More_Agents_%26_Vibe_Coding-Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/codeonvibes)
 
-[Features](#-what-it-reviews) · [How It Works](#-how-it-works) · [Examples](#-example-output) · [Built On](#-built-on)
+[What It Reviews](#what-it-reviews) · [How It Works](#how-it-works) · [Installation](#installation) · [Example Output](#example-output) · [Built On](#built-on)
 
 ```bash
 mkdir -p .claude/agents && curl -o .claude/agents/code-reviewer.md \
@@ -23,7 +23,7 @@ mkdir -p .claude/agents && curl -o .claude/agents/code-reviewer.md \
 
 </div>
 
-## 🎯 The Problem
+## The Problem
 
 You finish a feature, push the code, and get a review that says:
 
@@ -31,9 +31,11 @@ You finish a feature, push the code, and get a review that says:
 
 No specifics. No fix. No file path. You're left guessing what exactly to change. Or worse — the review nitpicks import order while missing a SQL injection on line 42.
 
-## 💡 The Solution
+## What This Does
 
-**Code Reviewer Agent** is a `.md` file that configures Claude Code for expert-level code review. It gives you the exact fix: file, line, before → after.
+**Code Reviewer Agent** is a single `.md` file that turns [Claude Code](https://code.claude.com/docs) into an expert code reviewer. Drop it into `.claude/agents/` and get reviews with exact fixes: file, line, before → after.
+
+> **What's a Claude Code agent?** An agent is a `.md` file in `.claude/agents/` that gives Claude Code specialized behavior for a specific task. No plugins, no API keys — just a text file with instructions. [Learn more](https://code.claude.com/docs)
 
 ```
 src/api/userController.ts:42:critical: [Security] Raw user input in SQL query.
@@ -50,21 +52,21 @@ Every finding has a severity, confidence level, and a concrete code change.
 <br><br>
 </div>
 
-## ⚡ Why This Agent
+## At a Glance
 
 <table>
 <tr>
 <td>
 
 ```
-✅ 14 review categories
-✅ 14 false-positive rules
-✅ 4 severity levels + confidence
-✅ Auto-fix with A/B/C/D options
-✅ 0 dependencies, 0 config
-✅ 1 file, copy and use
-✅ Bilingual output (EN + RU)
-✅ 8 refactoring heuristics
+ 14 review categories
+ 14 false-positive rules
+ 4 severity levels + confidence
+ Auto-fix with A/B/C/D options
+ 0 dependencies, 0 config
+ 1 file, copy and use
+ Responds in your language
+ 8 refactoring heuristics
 ```
 
 </td>
@@ -85,28 +87,28 @@ Every finding has a severity, confidence level, and a concrete code change.
 </tr>
 </table>
 
-## ✨ What It Reviews
+## What It Reviews
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
 ### Code Quality
-- 🏗️ **Design & Architecture** — SOLID violations, layer leaks, wrong abstractions
-- ✅ **Correctness** — edge cases, API contract mismatches, schema drift
-- 🧩 **Complexity** — 11 code smells with thresholds (Fowler)
-- 📝 **Naming** — Clean Code conventions
-- 🔷 **TypeScript** — `any` hunting, type safety, discriminated unions
+- **Design & Architecture** — SOLID violations, layer leaks, wrong abstractions
+- **Correctness** — edge cases, API contract mismatches, schema drift
+- **Complexity** — 11 code smells with thresholds (Fowler)
+- **Naming** — Clean Code conventions
+- **TypeScript** — `any` hunting, type safety, discriminated unions
 
 </td>
 <td width="50%" valign="top">
 
 ### Reliability & Security
-- ⚡ **Async & Concurrency** — race conditions, TOCTOU, N+1 queries
-- 🔒 **Security** — OWASP Top 10, supply chain, CORS, headers
-- 🚨 **Error Handling** — silent failures, missing boundaries
-- ⚛️ **React Patterns** — hooks, stale closures, re-renders
-- ♿ **Accessibility** — semantic HTML, ARIA, keyboard navigation
+- **Async & Concurrency** — race conditions, TOCTOU, N+1 queries
+- **Security** — OWASP Top 10, supply chain, CORS, headers
+- **Error Handling** — silent failures, missing boundaries
+- **React Patterns** — hooks, stale closures, re-renders
+- **Accessibility** — semantic HTML, ARIA, keyboard navigation
 
 </td>
 </tr>
@@ -114,17 +116,17 @@ Every finding has a severity, confidence level, and a concrete code change.
 <td width="50%" valign="top">
 
 ### Testing & Data
-- 🧪 **Test Quality** — coverage gaps, meaningful assertions
-- 🗃️ **DB Migrations** — rollback safety, schema alignment
-- 📦 **Performance** — bundle size, lazy loading, memoization
+- **Test Quality** — coverage gaps, meaningful assertions
+- **DB Migrations** — rollback safety, schema alignment
+- **Performance** — bundle size, lazy loading, memoization
 
 </td>
 <td width="50%" valign="top">
 
 ### Developer Experience
-- 📋 **Comments & Docs** — WHY not WHAT, no dead code
-- 🗑️ **Removal Workflow** — safe deletion verification
-- 🔄 **Refactoring Heuristics** — when to suggest vs. when to skip
+- **Comments & Docs** — WHY not WHAT, no dead code
+- **Removal Workflow** — safe deletion verification
+- **Refactoring Heuristics** — when to suggest vs. when to skip
 
 </td>
 </tr>
@@ -132,16 +134,16 @@ Every finding has a severity, confidence level, and a concrete code change.
 
 **14 review categories total.** The agent only checks what's relevant. Backend PR? It skips React and a11y. Test-only PR? It focuses on assertions and isolation.
 
-## 📊 How It Works
+## How It Works
 
 ```mermaid
 flowchart TD
-    A[📥 Receive diff] --> B{Classify PR type}
+    A[Receive diff] --> B{Classify PR type}
     B -->|Feature| C[All 14 categories]
     B -->|Bug fix| D[Correctness + Tests + Error Handling]
     B -->|Refactor| E[Design + Complexity + Naming + Tests]
     B -->|Test-only| F[Tests + Naming + Correctness]
-    B -->|Deletion| G[🗑️ Removal Workflow]
+    B -->|Deletion| G[Removal Workflow]
     B -->|Migration| H[Rollback + Schema + Breaking changes]
 
     C & D & E & F & G & H --> I[Read surrounding code & callers]
@@ -149,10 +151,10 @@ flowchart TD
     J --> K[Self-check: 10-point verification]
     K --> L{Verdict}
 
-    L -->|0 Critical, 0 Warning| M[✅ Approve]
-    L -->|0 Critical, 1-3 Warning| N[✅ Approve with suggestions]
-    L -->|Any Critical or >3 Warning| O[🔄 Request Changes]
-    L -->|Security / Data loss| P[🚫 Blocking]
+    L -->|0 Critical, 0 Warning| M[Approve]
+    L -->|0 Critical, 1-3 Warning| N[Approve with suggestions]
+    L -->|Any Critical or >3 Warning| O[Request Changes]
+    L -->|Security / Data loss| P[Blocking]
 
     O & P --> Q[Present Action Options A/B/C/D]
     Q -->|A| R[Fix all findings automatically]
@@ -161,20 +163,20 @@ flowchart TD
     Q -->|D| U[Review only, no auto-fix]
 ```
 
-## 🎚️ Four Severity Levels
+## Severity Levels
 
 The key question: **"Can you describe a scenario where a real user is harmed?"**
 
 | Level | Meaning | Example |
 |:------|:--------|:--------|
-| 🔴 **Critical** | Users **will** be affected. Immediate harm | SQL injection, missing auth check, data corruption |
-| 🟡 **Warning** | Users **may** be affected under conditions | Missing useEffect cleanup, cognitive complexity >15 |
-| 🔵 **Suggestion** | Dev experience issue. Code works but could be better | Extract shared logic, use discriminated unions |
-| ⚪ **Nit** | Purely cosmetic | Better variable name, import order |
+| **Critical** | Users **will** be affected. Immediate harm | SQL injection, missing auth check, data corruption |
+| **Warning** | Users **may** be affected under conditions | Missing useEffect cleanup, cognitive complexity >15 |
+| **Suggestion** | Dev experience issue. Code works but could be better | Extract shared logic, use discriminated unions |
+| **Nit** | Purely cosmetic | Better variable name, import order |
 
 Each finding includes **confidence level**: `[HIGH]` (verified), `[MEDIUM]` (likely), `[LOW]` (suspicious).
 
-## 📦 Installation
+## Installation
 
 ### 1. Copy the agent file
 
@@ -198,15 +200,15 @@ curl -o .claude/agents/code-reviewer.md \
 
 No configuration, API keys, or build step required.
 
-> **Requirements:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code) with subagent support. The agent runs on `sonnet` model by default.
+> **Requirements:** [Claude Code](https://code.claude.com/docs) with agent support. The agent runs on `sonnet` model by default.
 
-## 📋 Example Output
+## Example Output
 
 ```
 ## Code Review
 **Scope:** 4 files, 187 lines | **Verdict:** Request Changes
 
-### 🔴 Critical (must fix)
+### Critical (must fix)
 1. **[Correctness] [HIGH]** `src/services/orderService.ts` L42:
    Frontend expects `Order[]`, but API returns `{ data: Order[], total: number }`.
    Will crash at runtime.
@@ -216,20 +218,20 @@ No configuration, API keys, or build step required.
    Raw user input in SQL query — SQL injection.
    Fix: `db.query('SELECT * FROM users WHERE id = $1', [userId])`
 
-### 🟡 Warning
+### Warning
 1. **[React] [MEDIUM]** `src/components/OrderList.tsx` L25:
    useEffect subscribes to eventBus but no cleanup. Memory leak on unmount.
    Fix: `return () => eventBus.unsubscribe(handler)`
 
-### 🔵 Suggestion
+### Suggestion
 1. **[TypeScript]** `src/types/order.ts` L8:
    String literal union → use discriminated union for exhaustive matching
 
-### ⚪ Nit
+### Nit
 1. **[Naming]** `src/services/orderService.ts` L12:
    `const d = new Date()` → `const createdAt = new Date()`
 
-### ✅ Good
+### Good
 - Clean separation between API layer and business logic
 - Proper use of discriminated unions for OrderStatus
 - All new functions have descriptive names
@@ -242,7 +244,7 @@ No configuration, API keys, or build step required.
 > - D. Review only — no auto-fix
 ```
 
-## 🧠 Key Design Decisions
+## Key Design Decisions
 
 ### "Review the diff, not the file"
 
@@ -256,11 +258,11 @@ Every finding is verified by reading the actual code. The agent uses `Grep` to f
 
 14 false-positive rules prevent noise: NestJS DI injection, `any` in tests, `as` assertions in mocks, barrel re-exports, root component `useEffect` cleanup, and more.
 
-### Bilingual (EN + RU)
+### Language detection
 
 The agent detects the user's language and outputs the entire review in that language: headings, severity labels, and fixes. Code stays in the programming language.
 
-## 🔧 Under the Hood
+## Under the Hood
 
 ```mermaid
 graph LR
@@ -309,7 +311,7 @@ Not every code smell warrants a suggestion. The agent uses **8 heuristics** to d
 7. **Test-first** — refactoring without tests is gambling
 8. **Scope boundary** — refactoring belongs in a dedicated PR
 
-## 📚 Built On
+## Built On
 
 Built on practices from established industry sources:
 
@@ -323,7 +325,7 @@ Built on practices from established industry sources:
 | [OWASP Top 10](https://owasp.org/www-project-top-ten/) | Security checklist |
 | [Kent C. Dodds](https://kentcdodds.com/blog) | React patterns, hooks, testing |
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 ```
 code-review-agent/
@@ -337,13 +339,16 @@ code-review-agent/
 
 One file. No build step. No dependencies. Copy and use.
 
-## 🏗️ Built For Production
+## Troubleshooting
 
-This agent was built and refined while developing a real TypeScript + React + NestJS monorepo with 100+ files, a league system, gamification, and interview features. Every rule, false-positive filter, and refactoring heuristic comes from real-world review cycles.
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| Agent not found | Missing file or wrong path | Verify `.claude/agents/code-reviewer.md` exists |
+| Review is too slow | Large diff or many categories | Agent auto-scopes, but you can say "focus on security only" |
+| False positive | Rule doesn't match your pattern | Agent learns from corrections via memory system |
+| No output | Claude Code doesn't have agent support | Update Claude Code to latest version |
 
-> *700+ lines of review logic, refined through production use. Each rule comes from catching a real bug or preventing a false alarm.*
-
-## 🤝 Contributing
+## Contributing
 
 1. Fork this repo
 2. Edit `code-reviewer.md`
@@ -374,16 +379,6 @@ model: sonnet
 ## Sources
 ```
 
-## 📄 License
+## License
 
 [MIT](LICENSE) — use it, modify it, ship it.
-
----
-
-<div align="center">
-
-**Built for developers who want concrete code reviews.**
-
-*If this helped you, give it a ⭐ — it helps others find it too.*
-
-</div>
